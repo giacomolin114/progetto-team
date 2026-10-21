@@ -1,3 +1,4 @@
+
 #servizi {
     padding: 40px 20px;
     text-align: center;
@@ -30,4 +31,6 @@
 
 .card p {
     color: #555555;
+
 }
+.footer { background-color: #1B365D; color: white; padding: 20px; text-align: center; }
