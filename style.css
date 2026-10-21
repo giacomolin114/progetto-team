@@ -1,1 +1,33 @@
+#servizi {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f2f4f8;
+}
 
+#servizi h2 {
+    color: #1B365D;
+    margin-bottom: 25px;
+}
+
+.contenitore-card {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    width: 250px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px #cccccc;
+}
+
+.card h3 {
+    color: #1B365D;
+}
+
+.card p {
+    color: #555555;
+}
