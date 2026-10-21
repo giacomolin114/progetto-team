@@ -33,3 +33,170 @@
 
 </body>
 </html>
+<footer class="relative w-full bg-slate-950 text-slate-300 overflow-hidden pt-20 pb-12 border-t border-slate-800/80">
+  
+  <!-- Canvas Sfondo Particellare -->
+  <canvas id="particle-canvas" class="absolute inset-0 pointer-events-none opacity-60"></canvas>
+
+  <!-- Glowing Orbs (Luci di sfondo) -->
+  <div class="absolute top-0 left-1/4 -translate-x-1/2 w-[500px] h-[300px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none"></div>
+  <div class="absolute bottom-10 right-10 w-[400px] h-[300px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+
+    <!-- BANNER NEWSLETTER (Card Glassmorphism) -->
+    <div class="glass-card rounded-3xl p-8 sm:p-12 mb-20 relative overflow-hidden group">
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-semibold text-emerald-400 mb-4">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Resta in contatto
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-bold text-white mb-3 font-['Space_Grotesk'] tracking-tight">
+            Pronto a creare qualcosa di straordinario?
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base">
+            Iscriviti alla newsletter per aggiornamenti, risorse e insight sul design.
+          </p>
+        </div>
+
+        <div class="lg:col-span-5">
+          <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3">
+            <div class="relative flex-1">
+              <input 
+                type="email" 
+                id="newsletter-email" 
+                required 
+                placeholder="Inserisci la tua email..." 
+                class="w-full bg-slate-900/90 border border-slate-700/80 rounded-xl px-4 py-3.5 pl-11 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
+              >
+              <i data-lucide="mail" class="w-4 h-4 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2"></i>
+            </div>
+            <button 
+              type="submit" 
+              id="newsletter-btn" 
+              class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-bold text-sm hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20"
+            >
+              <span>Iscriviti</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </form>
+          <p id="form-feedback" class="text-xs text-emerald-400 mt-2 font-medium hidden">
+            ✓ Ti sei iscritto con successo!
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GRIGLIA CONTENUTI -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+
+      <!-- Brand & Orologio -->
+      <div class="lg:col-span-4 space-y-6">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-400 to-cyan-500 p-0.5 shadow-lg shadow-emerald-500/20">
+            <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+              <i data-lucide="zap" class="w-5 h-5 text-emerald-400"></i>
+            </div>
+          </div>
+          <span class="text-xl font-bold text-white font-['Space_Grotesk'] tracking-wide">NEXUS<span class="text-emerald-400">.LAB</span></span>
+        </div>
+
+        <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+          Progettiamo e sviluppiamo esperienze digitali del futuro con attenzione maniacale ai dettagli, alle prestazioni e al design.
+        </p>
+
+        <!-- Orologio Fusi Orari -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 max-w-xs">
+          <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+            <span class="flex items-center gap-1.5 font-medium text-slate-300">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-emerald-400"></i> HQ Local Time
+            </span>
+            <div class="flex gap-2">
+              <button data-tz="Europe/Rome" class="tz-btn active text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">ROM</button>
+              <button data-tz="America/New_York" class="tz-btn text-[10px] font-bold px-1.5 py-0.5 rounded text-slate-500 hover:text-slate-300">NYC</button>
+              <button data-tz="Asia/Tokyo" class="tz-btn text-[10px] font-bold px-1.5 py-0.5 rounded text-slate-500 hover:text-slate-300">TYO</button>
+            </div>
+          </div>
+          <div id="clock-display" class="text-xl font-bold font-mono text-white tracking-wider">
+            --:--:--
+          </div>
+        </div>
+      </div>
+
+      <!-- Link Navigazione -->
+      <div class="lg:col-span-2 space-y-4">
+        <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider font-['Space_Grotesk']">Navigazione</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="#" class="hover-link inline-block">Chi Siamo</a></li>
+          <li><a href="#" class="hover-link inline-block">Servizi</a></li>
+          <li><a href="#" class="hover-link inline-block">Progetti <span class="text-[10px] bg-emerald-500/20 text-emerald-400 font-bold px-1.5 py-0.5 rounded ml-1">NEW</span></a></li>
+          <li><a href="#" class="hover-link inline-block">Carriera</a></li>
+          <li><a href="#" class="hover-link inline-block">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Link Risorse -->
+      <div class="lg:col-span-2 space-y-4">
+        <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider font-['Space_Grotesk']">Risorse</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="#" class="hover-link inline-block">Documentazione</a></li>
+          <li><a href="#" class="hover-link inline-block">Libreria UI</a></li>
+          <li><a href="#" class="hover-link inline-block">Stato Sistemi</a></li>
+          <li><a href="#" class="hover-link inline-block">Community</a></li>
+          <li><a href="#" class="hover-link inline-block">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div class="lg:col-span-4 space-y-4">
+        <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider font-['Space_Grotesk']">Connettiti</h4>
+        <p class="text-slate-400 text-sm">Seguici sui social per aggiornamenti quotidiani sui progetti.</p>
+        
+        <div class="flex flex-wrap gap-2.5 pt-2">
+          <a href="#" class="social-btn" aria-label="Twitter">
+            <i data-lucide="twitter" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="social-btn" aria-label="GitHub">
+            <i data-lucide="github" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="social-btn" aria-label="LinkedIn">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <i data-lucide="instagram" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="social-btn" aria-label="Dribbble">
+            <i data-lucide="dribbble" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div>
+        &copy; <span id="current-year">2026</span> NexusLab S.r.l. Tutti i diritti riservati.
+      </div>
+
+      <div class="flex items-center space-x-6">
+        <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-slate-300 transition-colors">Cookie Policy</a>
+        <a href="#" class="hover:text-slate-300 transition-colors">Termini di Servizio</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Pulsante Torna Su -->
+  <button 
+    id="back-to-top" 
+    aria-label="Torna su" 
+    class="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-2xl bg-slate-900/90 border border-slate-700/80 text-emerald-400 flex items-center justify-center shadow-xl backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 hover:border-emerald-500 group"
+  >
+    <i data-lucide="rocket" class="w-5 h-5 group-hover:-translate-y-1 transition-transform"></i>
+  </button>
+
+</footer>
